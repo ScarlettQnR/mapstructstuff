@@ -1,7 +1,6 @@
-package main;
+package main.basicMapper;
 
-public class PersonDst {
-
+public class PersonSrc {
     private  String name;
     private int age;
 

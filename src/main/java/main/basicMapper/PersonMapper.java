@@ -1,4 +1,4 @@
-package main;
+package main.basicMapper;
 
 import org.mapstruct.Mapper;
 

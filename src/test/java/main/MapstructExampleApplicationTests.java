@@ -1,5 +1,8 @@
 package main;
 
+import main.basicMapper.PersonDst;
+import main.basicMapper.PersonMapper;
+import main.basicMapper.PersonSrc;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +20,7 @@ class MapstructExampleApplicationTests {
 
 
 	@Test
-	public void testBasicMapping(){
+	public void basicMapperSrcToDstTest(){
 		PersonSrc simpleSource = new PersonSrc();
 		simpleSource.setName("SourceName");
 		simpleSource.setAge(20);
@@ -26,6 +29,18 @@ class MapstructExampleApplicationTests {
 		assertEquals(simpleSource.getName(), destination.getName());
 		assertEquals(simpleSource.getAge(),
 				destination.getAge());
+	}
+
+	@Test
+	public void basicMapperDstToSrcTest(){
+		PersonDst simpleDest = new PersonDst();
+		simpleDest.setName("SourceName");
+		simpleDest.setAge(20);
+		PersonSrc source = mapper.destinationToSource(simpleDest);
+
+		assertEquals(source.getName(), simpleDest.getName());
+		assertEquals(source.getAge(),
+				simpleDest.getAge());
 	}
 
 }
